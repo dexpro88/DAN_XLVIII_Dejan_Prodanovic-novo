@@ -1,0 +1,84 @@
+﻿<Window x:Class="DAN_XLVIII_Dejan_Prodanovic.View.GuestMainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DAN_XLVIII_Dejan_Prodanovic.View"
+        mc:Ignorable="d"
+        Title="GuestMainView"
+        WindowStartupLocation="CenterScreen"
+        Height="350"
+        Width="650"
+        Background="#2e3137">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10,10,10,10" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Padding"
+                    Value="10,0,10,0" />
+            <Setter Property="Background"
+                    Value="#545d6a" />
+            <Setter Property="Width"
+                    Value="110" />
+            <Setter Property="Foreground"
+                    Value="White" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="10,0,0,0" />
+            <Setter Property="FontSize"
+                    Value="20" />
+            <Setter Property="Foreground"
+                    Value="White" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Image Visibility="{Binding ViewMainMenu, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"
+               Grid.Column="0"
+               Source="/Picture/Supreme_pizza.jpg" />
+        <StackPanel Visibility="{Binding ViewMainMenu, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Label Content="Welcome to MyPizzeria!" />
+        </StackPanel>
+        <GridSplitter Visibility="{Binding ViewMainMenu, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0"
+                      Grid.RowSpan="3"
+                      Width="5"
+                      HorizontalAlignment="Right" />
+        <StackPanel Visibility="{Binding ViewMainMenu, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <Button Command="{Binding ShowMenu}"
+                    Content="Menu" />
+            <Button Command="{Binding LogoutCommmand}"
+                    Content="Logout" />
+            <Button Command="{Binding Close}"
+                    Content="Close" />
+        </StackPanel>
+        <StackPanel Visibility="{Binding ViewAprovedOrder, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="1"
+                    
+                    Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <TextBlock Foreground="White" FontSize="22" Margin="20">Your last order is aproved</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
